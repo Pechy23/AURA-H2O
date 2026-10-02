@@ -626,3 +626,68 @@ p {
 .remove-btn:hover {
     color: #ff4757;
 }
+
+/* --- RESPONZIVITA PRO MOBILY A TABLETY --- */
+@media (max-width: 768px) {
+    /* Obecné zúžení a úprava odsazení pro mobily */
+    body {
+        padding: 0 10px;
+    }
+
+    nav {
+        width: 95% !important;
+        padding: 15px 20px !important;
+        margin-top: 10px !important;
+        border-radius: 15px !important;
+    }
+
+    /* Zmenšení nadpisů, aby se vešly na mobil */
+    h1 {
+        font-size: 2.2rem !important;
+    }
+
+    .hero-card h1 {
+        font-size: 2.5rem !important;
+    }
+
+    /* Zmenšení vnitřních okrajů velkých karet (HUD) */
+    .card, .hero-card, .feature-row, .shop-content {
+        padding: 30px 20px !important;
+        border-radius: 20px !important;
+    }
+
+    /* Stránka obchodu: přepnutí vedle sebe -> pod sebe */
+    .shop-container {
+        flex-direction: column-reverse !important;
+        gap: 30px !important;
+    }
+
+    .shop-image img {
+        max-height: 350px !important; /* Zmenšení obrázku láhve na mobilu */
+    }
+
+    /* Úvodní sekce (střídající se řádky) pod sebe */
+    .feature-row {
+        flex-direction: column !important;
+        gap: 30px !important;
+        text-align: center !important;
+    }
+
+    .feature-text {
+        text-align: center !important;
+    }
+
+    /* Navigační odkazy v hlavičce – pokud je jich moc, zmenšíme mezeru */
+    .nav-links {
+        gap: 15px !important;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem !important;
+    }
+
+    /* Pokladna a formuláře */
+    .checkout-section {
+        font-size: 1.1rem !important;
+    }
+}
