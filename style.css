@@ -691,3 +691,35 @@ p {
         font-size: 1.1rem !important;
     }
 }
+
+@media (max-width: 768px) {
+    /* Úprava mobilní navigace, aby se prvky nerozjížděly */
+    nav {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 12px 15px !important;
+        width: 95% !important;
+    }
+
+    .logo {
+        width: auto !important;
+    }
+
+    .logo a {
+        font-size: 1.1rem !important;
+        gap: 8px !important;
+    }
+
+    .logo img {
+        height: 28px !important;
+    }
+
+    .nav-links {
+        gap: 15px !important;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem !important;
+    }
+}
