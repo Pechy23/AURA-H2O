@@ -1,0 +1,628 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    background: linear-gradient(-45deg, #e8f0f2, #fcfcfc, #eceaf2, #f3ede8);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Navigace --- */
+nav {
+    width: 90%;
+    max-width: 1200px;
+    
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.03), inset 0 2px 15px rgba(255, 255, 255, 0.6);
+    
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #222;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.logo img {
+    height: 35px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #000;
+}
+
+/* --- Hlavní obsah --- */
+main {
+    width: 90%;
+    max-width: 1200px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+}
+
+/* LIQUID GLASS PRO KARTY */
+.card, .hero-card, .feature-row, .shop-content {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.04), inset 0 2px 20px rgba(255, 255, 255, 0.7);
+}
+
+.card {
+    padding: 60px;
+    max-width: 700px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    color: #222;
+}
+
+p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* --- Úvodní stránka --- */
+.index-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin: 40px 0 80px 0;
+}
+
+.hero-card {
+    padding: 80px 60px;
+    text-align: center;
+    width: 100%;
+}
+
+.hero-card h1 {
+    font-size: 4rem;
+    margin-bottom: 25px;
+}
+
+.hero-card h1 strong {
+    font-weight: 600;
+    color: #7ad3d9;
+}
+
+.feature-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 60px;
+}
+
+.feature-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.feature-text {
+    flex: 1;
+    text-align: left;
+}
+
+.feature-text h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: #222;
+    line-height: 1.2;
+}
+
+.feature-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.feature-image img {
+    max-height: 450px;
+    object-fit: contain;
+    filter: drop-shadow(-15px 25px 25px rgba(0,0,0,0.12));
+}
+
+@media (max-width: 900px) {
+    .feature-row, .feature-row:nth-child(even) {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 30px;
+    }
+    .feature-text {
+        text-align: center;
+    }
+    .shop-container {
+        flex-direction: column;
+    }
+}
+
+/* --- Shop Stránka --- */
+.shop-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+}
+
+.shop-content {
+    padding: 60px;
+    flex: 1;
+}
+
+.shop-content h1 {
+    text-align: left;
+}
+
+.shop-content p {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Cena */
+.price-display {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #222;
+    margin: 10px 0 30px 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Výběr objemu (Sizes) */
+.size-picker {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.size-picker-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.sizes {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.size {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #555;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.size:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.size.active {
+    background: #7ad3d9;
+    color: #fff;
+    border-color: #7ad3d9;
+    box-shadow: 0 8px 20px rgba(122, 211, 217, 0.3);
+}
+
+.shop-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.shop-image img {
+    max-height: 600px;
+    object-fit: contain;
+    filter: drop-shadow(-15px 25px 25px rgba(0,0,0,0.15));
+    transition: opacity 0.3s ease;
+}
+
+/* Tlačítko Shop Now */
+.btn-shop {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: linear-gradient(90deg, #a1e0de, #7ad3d9);
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px rgba(122, 211, 217, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-shop:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(122, 211, 217, 0.5);
+}
+
+.btn-shop img {
+    height: 18px;
+    filter: brightness(0) invert(1);
+}
+
+/* Výběr barev */
+.color-picker {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.color-picker-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.colors {
+    display: flex;
+    gap: 15px;
+    align-items: center; 
+    padding: 5px; 
+}
+
+.color {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.3s ease, 
+                border-color 0.3s ease;
+}
+
+.color:hover {
+    transform: scale(1.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.color.active {
+    transform: scale(1.25);
+    border-color: #fff;
+    box-shadow: 0 0 0 2px #d1d5db, 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+/* Kontaktní údaje */
+.contact-list {
+    text-align: left;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.contact-list div {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.contact-list strong {
+    color: #222;
+    margin-right: 10px;
+}
+
+/* --- Formulář pro objednávku --- */
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.form-group input, .form-group textarea {
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #7ad3d9;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 4px rgba(122, 211, 217, 0.2);
+}
+
+.order-form .btn-shop {
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+/* --- Rozšíření pro objednávku (Doprava, Platba, Shrnutí) --- */
+.checkout-section {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #222;
+    margin: 40px 0 20px 0;
+    text-align: left;
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+    padding-bottom: 10px;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    padding: 16px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.radio-label:hover {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.radio-label input[type="radio"] {
+    accent-color: #7ad3d9;
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.radio-label-content {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    font-weight: 500;
+    color: #444;
+    font-size: 1.05rem;
+}
+
+.radio-price {
+    font-weight: 600;
+    color: #222;
+}
+
+.order-summary {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    color: #555;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid rgba(255,255,255,0.7);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #222;
+}
+
+/* --- Košík --- */
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+}
+
+.cart-item img {
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(-5px 10px 10px rgba(0,0,0,0.1));
+}
+
+.cart-item-details {
+    flex: 1;
+    text-align: left;
+}
+
+.cart-item-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.cart-item-subtitle {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.cart-item-price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Ovládání počtu kusů */
+.cart-quantity {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.qty-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #444;
+    transition: color 0.2s;
+}
+
+.qty-btn:hover {
+    color: #7ad3d9;
+}
+
+/* Celková cena pod košíkem */
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #222;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Odznáček s číslem v navigaci */
+.nav-cart {
+    background: #7ad3d9;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 5px;
+    box-shadow: 0 4px 10px rgba(122, 211, 217, 0.4);
+}
+
+/* Responzivita košíku pro mobily */
+@media (max-width: 600px) {
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cart-item-details {
+        text-align: center;
+    }
+}
+
+/* Tlačítko pro smazání položky z košíku */
+.remove-btn {
+    background: none;
+    border: none;
+    color: #ff6b6b;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: color 0.2s;
+    text-decoration: underline;
+}
+
+.remove-btn:hover {
+    color: #ff4757;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Úvod | AURA H2O</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <!-- 1. Logo vlevo -->
+        <div class="logo" style="width: 140px; display: flex; justify-content: flex-start;">
+            <a href="index.html">
+                <img src="logo.png" alt="Logo" onerror="this.src='https://placehold.co/100x35/ccc/fff?text=LOGO'">
+                <span>FlowState</span>
+            </a>
+        </div>
+
+        <!-- 2. Odkazy uprostřed -->
+        <div class="nav-links">
+            <a href="index.html">Úvod</a>
+            <a href="shop.html">Obchod</a>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
+
+        <!-- 3. Košík vpravo (symetricky k logu) -->
+        <div style="width: 140px; display: flex; justify-content: flex-end;">
+            <a href="kosik.html" class="cart-icon-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px; stroke: currentColor;">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span class="nav-cart-badge" id="nav-cart-count">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="index-container">
+            
+            <div class="hero-card">
+                <h1><strong>AURA H2O</strong><br>Základ zdravého života</h1>
+                <p style="max-width: 700px; margin: 0 auto 40px auto;">
+                    Věříme, že hydratace by měla být snadná, stylová a udržitelná. 
+                    Spojujeme prémiové materiály s nadčasovým designem pro váš maximální komfort.
+                </p>
+                <a href="shop.html" class="btn-shop">
+                    Prohlédnout kolekci &rarr;
+                </a>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-text">
+                    <h2>Design, který dává smysl</h2>
+                    <p>
+                        Naše lahve s ideálním objemem <strong>dle výběru</strong> jsou navrženy tak, aby s vámi udržely krok po celý den, 
+                        ať už jste v kanceláři, ve škole nebo na horské stezce. Minimalistický 
+                        vzhled se hodí ke každému outfitu a ergonomický tvar zaručuje pohodlný úchop.
+                    </p>
+                </div>
+                <div class="feature-image">
+                    <img src="lahev.png" alt="Láhev FlowState" onerror="this.src='https://placehold.co/400x800/8bb2ca/fff?text=LÁHEV'">
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-text">
+                    <h2>Udržitelnost na prvním místě</h2>
+                    <p>
+                        Jedna naše láhev dokáže nahradit tisíce jednorázových plastových lahví ročně. 
+                        Investicí do kvalitní hydratace nešetříte jen své zdraví, ale také naši planetu. 
+                        Buďte součástí změny.
+                    </p>
+                </div>
+                <div class="feature-image">
+                    <img src="lahev.png" alt="Láhev z jiného úhlu" style="filter: hue-rotate(50deg) drop-shadow(-15px 25px 25px rgba(0,0,0,0.12));" onerror="this.src='https://placehold.co/400x800/b7b0d1/fff?text=LÁHEV'">
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-text">
+                    <h2>Prvotřídní materiály</h2>
+                    <p>
+                        Vyrobeno z vysoce kvalitní potravinářské oceli s dvojitou izolační stěnou. 
+                        Váš nápoj zůstane ledově vychlazený až 24 hodin, nebo příjemně horký po dobu 12 hodin. 
+                        Bez kompromisů, bez kompromisní chuti.
+                    </p>
+                </div>
+                <div class="feature-image">
+                    <img src="lahev.png" alt="Detail materiálů" style="filter: grayscale(0.8) drop-shadow(-15px 25px 25px rgba(0,0,0,0.12));" onerror="this.src='https://placehold.co/400x800/616264/fff?text=LÁHEV'">
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>

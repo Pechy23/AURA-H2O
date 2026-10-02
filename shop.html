@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obchod | AURA H20</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <!-- 1. Logo vlevo -->
+        <div class="logo" style="width: 140px; display: flex; justify-content: flex-start;">
+            <a href="index.html">
+                <img src="logo.png" alt="Logo" onerror="this.src='https://placehold.co/100x35/ccc/fff?text=LOGO'">
+                <span>FlowState</span>
+            </a>
+        </div>
+
+        <!-- 2. Odkazy uprostřed -->
+        <div class="nav-links">
+            <a href="index.html">Úvod</a>
+            <a href="shop.html">Obchod</a>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
+
+        <!-- 3. Košík vpravo (symetricky k logu) -->
+        <div style="width: 140px; display: flex; justify-content: flex-end;">
+            <a href="kosik.html" class="cart-icon-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px; stroke: currentColor;">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span class="nav-cart-badge" id="nav-cart-count">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="shop-container">
+            <div class="shop-content">
+                <h1>Čistá hydratace,<br>nově definovaná</h1>
+                <p>Prémiové materiály. Nadčasový design.<br>Hydratace, která s vámi udrží krok po celý den.</p>
+                
+                <div class="price-display" id="price-display">799 Kč</div>
+
+                <div class="size-picker">
+                    <div class="size-picker-title">Vyberte si objem:</div>
+                    <div class="sizes">
+                        <div class="size" data-price="499">500 ml</div>
+                        <div class="size active" data-price="799">750 ml</div>
+                        <div class="size" data-price="1099">1 l</div>
+                    </div>
+                </div>
+
+                <div class="color-picker">
+                    <div class="color-picker-title">
+                        Vyberte si barvu: <span id="color-name-display" style="margin-left:10px; font-weight:normal; color:#666;">Pastelově modrá</span>
+                    </div>
+                    <div class="colors">
+                        <div class="color" style="background-color: #a3b19b;" data-name="Šalvějově zelená" data-img="lahev-zelena.png" data-hex="a3b19b"></div>
+                        <div class="color" style="background-color: #b7b0d1;" data-name="Levandulová" data-img="lahev-fialova.png" data-hex="b7b0d1"></div>
+                        <div class="color" style="background-color: #e5d1be;" data-name="Písková" data-img="lahev-bezova.png" data-hex="e5d1be"></div>
+                        <div class="color active" style="background-color: #8bb2ca;" data-name="Pastelově modrá" data-img="lahev.png" data-hex="8bb2ca"></div>
+                        <div class="color" style="background-color: #e6b9b3;" data-name="Pudrově růžová" data-img="lahev-ruzova.png" data-hex="e6b9b3"></div>
+                        <div class="color" style="background-color: #616264;" data-name="Grafitově šedá" data-img="lahev-seda.png" data-hex="616264"></div>
+                    </div>
+                </div>
+                
+                <!-- Změněno z odkazu na tlačítko, které spouští JavaScript -->
+                <button id="add-to-cart-btn" class="btn-shop" style="border:none; cursor:pointer;">
+                    <img src="kapka.png" alt="Kapka" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'white\'><path d=\'M12 21.5c-3.14 0-6-2.52-6-6.5 0-3.32 3.8-8.24 5.37-10.05a.8.8 0 0 1 1.26 0C14.2 6.76 18 11.68 18 15c0 3.98-2.86 6.5-6 6.5z\'/></svg>'">
+                    Koupit nyní &rarr;
+                </button>
+            </div>
+
+            <div class="shop-image">
+                <img id="bottle-image" src="lahev.png" alt="Láhev">
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const colors = document.querySelectorAll('.color');
+        const bottleImage = document.getElementById('bottle-image');
+        const colorNameDisplay = document.getElementById('color-name-display');
+        const sizes = document.querySelectorAll('.size');
+        const priceDisplay = document.getElementById('price-display');
+
+        // Změna barvy
+        colors.forEach(color => {
+            color.addEventListener('click', () => {
+                colors.forEach(c => c.classList.remove('active'));
+                color.classList.add('active');
+                bottleImage.style.opacity = '0';
+                
+                setTimeout(() => {
+                    const newImgSrc = color.getAttribute('data-img');
+                    const newColorName = color.getAttribute('data-name');
+                    const hexColor = color.getAttribute('data-hex');
+
+                    bottleImage.onerror = function() {
+                        this.src = `https://placehold.co/400x800/${hexColor}/fff?text=LÁHEV`;
+                    };
+
+                    bottleImage.src = newImgSrc;
+                    colorNameDisplay.textContent = newColorName;
+                    bottleImage.style.opacity = '1';
+                }, 150);
+            });
+        });
+
+        // Změna objemu
+        sizes.forEach(size => {
+            size.addEventListener('click', () => {
+                sizes.forEach(s => s.classList.remove('active'));
+                size.classList.add('active');
+                
+                priceDisplay.style.opacity = '0';
+                setTimeout(() => {
+                    priceDisplay.textContent = size.getAttribute('data-price') + ' Kč';
+                    priceDisplay.style.opacity = '1';
+                }, 150);
+            });
+        });
+
+        // Přidání do košíku pomocí localStorage
+        document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+            const activeColor = document.querySelector('.color.active');
+            const activeSize = document.querySelector('.size.active');
+
+            const item = {
+                color: activeColor.getAttribute('data-name'),
+                img: activeColor.getAttribute('data-img'),
+                hex: activeColor.getAttribute('data-hex'),
+                size: activeSize.textContent,
+                price: parseInt(activeSize.getAttribute('data-price')),
+                quantity: 1
+            };
+
+            let cart = JSON.parse(localStorage.getItem('flowstate_cart')) || [];
+            
+            // Kontrola, jestli už přesně tahle láhev v košíku není (stejná barva i velikost)
+            let existingItemIndex = cart.findIndex(cartItem => cartItem.color === item.color && cartItem.size === item.size);
+            
+            if (existingItemIndex !== -1) {
+                cart[existingItemIndex].quantity += 1;
+            } else {
+                cart.push(item);
+            }
+
+            localStorage.setItem('flowstate_cart', JSON.stringify(cart));
+            window.location.href = 'kosik.html'; // Přesměrování rovnou do košíku
+        });
+
+        // Aktualizace čísla v navigaci při načtení
+        function updateNavCart() {
+            let cart = JSON.parse(localStorage.getItem('flowstate_cart')) || [];
+            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('nav-cart-count').textContent = totalItems;
+        }
+        updateNavCart();
+    </script>
+</body>
+</html>
