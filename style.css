@@ -629,71 +629,6 @@ p {
 
 /* --- RESPONZIVITA PRO MOBILY A TABLETY --- */
 @media (max-width: 768px) {
-    /* Obecné zúžení a úprava odsazení pro mobily */
-    body {
-        padding: 0 10px;
-    }
-
-    nav {
-        width: 95% !important;
-        padding: 15px 20px !important;
-        margin-top: 10px !important;
-        border-radius: 15px !important;
-    }
-
-    /* Zmenšení nadpisů, aby se vešly na mobil */
-    h1 {
-        font-size: 2.2rem !important;
-    }
-
-    .hero-card h1 {
-        font-size: 2.5rem !important;
-    }
-
-    /* Zmenšení vnitřních okrajů velkých karet (HUD) */
-    .card, .hero-card, .feature-row, .shop-content {
-        padding: 30px 20px !important;
-        border-radius: 20px !important;
-    }
-
-    /* Stránka obchodu: přepnutí vedle sebe -> pod sebe */
-    .shop-container {
-        flex-direction: column-reverse !important;
-        gap: 30px !important;
-    }
-
-    .shop-image img {
-        max-height: 350px !important; /* Zmenšení obrázku láhve na mobilu */
-    }
-
-    /* Úvodní sekce (střídající se řádky) pod sebe */
-    .feature-row {
-        flex-direction: column !important;
-        gap: 30px !important;
-        text-align: center !important;
-    }
-
-    .feature-text {
-        text-align: center !important;
-    }
-
-    /* Navigační odkazy v hlavičce – pokud je jich moc, zmenšíme mezeru */
-    .nav-links {
-        gap: 15px !important;
-    }
-
-    .nav-links a {
-        font-size: 0.9rem !important;
-    }
-
-    /* Pokladna a formuláře */
-    .checkout-section {
-        font-size: 1.1rem !important;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Úprava mobilní navigace, aby se prvky nerozjížděly */
     nav {
         flex-direction: row !important;
         justify-content: space-between !important;
@@ -702,24 +637,22 @@ p {
         width: 95% !important;
     }
 
-    .logo {
-        width: auto !important;
-    }
-
     .logo a {
-        font-size: 1.1rem !important;
-        gap: 8px !important;
+        font-size: 1rem !important;
+        gap: 6px !important;
     }
 
     .logo img {
-        height: 28px !important;
+        height: 24px !important;
     }
 
+    /* Obal pro odkazy, aby se nelepily na logo */
     .nav-links {
-        gap: 15px !important;
+        display: flex !important;
+        gap: 10px !important;
     }
 
     .nav-links a {
-        font-size: 0.85rem !important;
+        font-size: 0.75rem !important;
     }
 }
