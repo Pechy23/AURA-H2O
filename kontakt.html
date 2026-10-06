@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-     <nav>
+    <nav>
         <!-- 1. Logo vlevo -->
         <div class="logo">
             <a href="index.html">
@@ -20,13 +20,19 @@
         <div class="nav-links">
             <a href="index.html">Úvod</a>
             <a href="shop.html">Obchod</a>
-            <a href="kontakt.html">Kontakt</a>
+            <a href="kontakt.html" class="active">Kontakt</a>
         </div>
 
-        <!-- 3. Košík vpravo -->
-        <div>
+        <!-- 3. Přihlášení a košík vpravo -->
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <!-- Tlačítko Login / Účet -->
+            <a href="login.html" id="auth-link" style="text-decoration: none; color: #444; font-weight: 500; font-size: 0.95rem; background: rgba(255,255,255,0.6); padding: 8px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.9); transition: all 0.3s;">
+                Přihlásit
+            </a>
+
+            <!-- Košík -->
             <a href="kosik.html" class="cart-icon-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px; stroke: currentColor;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; stroke: currentColor;">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -36,7 +42,6 @@
         </div>
     </nav>
 
-
     <main>
         <div class="card">
             <h1>Ozvěte se nám</h1>
@@ -45,8 +50,21 @@
             <div class="contact-list">
                 <div><strong>E-mail:</strong> info@aura-h2o.cz</div>
                 <div><strong>Telefon:</strong> +420 123 456 789</div>
+                <div><strong>Adresa:</strong> Hydratační ulice 12, 100 00 Praha</div>
             </div>
         </div>
     </main>
+
+    <script>
+        // xFunkce pro aktualizaci počtu položek v košíku
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('flowstate_cart')) || [];
+            const navCartCount = document.getElementById('nav-cart-count');
+            navCartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+        }
+
+        // Aktualizace počtu položek při načtení stránky
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+    </script>
 </body>
 </html>
