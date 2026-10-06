@@ -8,8 +8,8 @@
     <script src="https://widget.packeta.com/v6/www/js/library.js"></script>
 </head>
 <body>
-     <nav>
-        <!-- 1. Logo a název vlevo -->
+    <nav>
+        <!-- 1. Logo vlevo -->
         <div class="logo">
             <a href="index.html">
                 <img src="logo.png" alt="Logo" onerror="this.src='https://placehold.co/100x35/ccc/fff?text=LOGO'">
@@ -24,8 +24,14 @@
             <a href="kontakt.html">Kontakt</a>
         </div>
 
-        <!-- 3. Košík vpravo -->
-        <div>
+        <!-- 3. Přihlášení a košík vpravo -->
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <!-- Tlačítko Login / Účet -->
+            <a href="login.html" id="auth-link" style="text-decoration: none; color: #444; font-weight: 500; font-size: 0.95rem; background: rgba(255,255,255,0.6); padding: 8px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.9); transition: all 0.3s;">
+                Přihlásit
+            </a>
+
+            <!-- Košík -->
             <a href="kosik.html" class="cart-icon-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; stroke: currentColor;">
                     <circle cx="9" cy="21" r="1"></circle>
@@ -36,8 +42,6 @@
             </a>
         </div>
     </nav>
-
-
 
     <main>
         <div class="card" style="max-width: 800px; width: 100%;">
